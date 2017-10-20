@@ -20,7 +20,7 @@ public class Network : MonoBehaviour
     Dictionary<string, GameObject> players = new Dictionary<string, GameObject>();
 
     // Use this for initialization
-    IEnumerable Start()
+    IEnumerator Start()
     {
         String uri = "ws://" + serverName + ":" + serverPort;
         client = new Client(uri);
@@ -58,6 +58,9 @@ public class Network : MonoBehaviour
 
             yield return 0;
         }
+
+
+        OnApplicationQuit();
     }
 
     void OnOpenHandler (object sender, EventArgs e)
@@ -72,6 +75,11 @@ public class Network : MonoBehaviour
     void OnUpdateHandler(object sender, RoomUpdateEventArgs e)
     {
         Debug.Log("Connected to server. Client id: " + client.id);
+    }
+    void OnApplicationQuit()
+    {
+        // Ensure the connection with server is closed immediatelly
+        client.Close();
     }
 
 }
