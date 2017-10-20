@@ -12,8 +12,8 @@ public class Network : MonoBehaviour
 
     Client client;
     Room hub;
-    public string serverName = "mem-server.herokuapp.com";
-    public string serverPort = "4200";
+    public string serverName = "localhost";
+    public string serverPort = "2657";
     public string hubName = "hub";
 
 
@@ -29,6 +29,8 @@ public class Network : MonoBehaviour
         yield return StartCoroutine(client.Connect());
 
         hub = client.Join(hubName);
+        hub.OnReadyToConnect += (sender, e) => StartCoroutine(hub.Connect());
+        hub.OnJoin += OnHubJoined;
 
         OnApplicationQuit();
     }
@@ -36,8 +38,15 @@ public class Network : MonoBehaviour
     {
         Debug.Log("Connectet to Server. Client id: " + client.id);
     }
+
+    void OnHubJoined (object sender, EventArgs e)
+    {
+        Debug.Log("Joined Hub successfully.");
+    }
+
     void OnApplicationQuit()
     {
         client.Close();
     }
+
 }
