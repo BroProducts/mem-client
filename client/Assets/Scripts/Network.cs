@@ -1,7 +1,7 @@
-﻿using System.Collections;
-using System;
+﻿using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
+using System;
 using Colyseus;
 
 using GameDevWare.Serialization;
@@ -11,11 +11,13 @@ public class Network : MonoBehaviour
 {
 
     Client client;
-    Room hub;
+    Room room;
     public string serverName = "localhost";
     public string serverPort = "2657";
-    public string hubName = "hub";
+    public string roomName = "hub";
 
+    // map of players
+    Dictionary<string, GameObject> players = new Dictionary<string, GameObject>();
 
     // Use this for initialization
     IEnumerable Start()
@@ -25,28 +27,51 @@ public class Network : MonoBehaviour
         client.OnOpen += OnOpenHandler;
         client.OnClose += (object sender, EventArgs e) => Debug.Log("CONNECTION CLOSED");
 
-
         yield return StartCoroutine(client.Connect());
 
-        hub = client.Join(hubName);
-        hub.OnReadyToConnect += (sender, e) => StartCoroutine(hub.Connect());
-        hub.OnJoin += OnHubJoined;
+        room = client.Join(roomName);
+        room.OnReadyToConnect += (sender, e) => StartCoroutine(room.Connect());
+        room.OnJoin += OnRoomJoined;
+        room.OnUpdate += OnUpdateHandler;
 
-        OnApplicationQuit();
+        room.OnData += (object sender, MessageEventArgs e) => Debug.Log(e.data);
+
+        int i = 0;
+
+        while (true)
+        {
+            client.Recv();
+
+            // string reply = client.RecvString();
+            if (client.error != null)
+            {
+                Debug.LogError("Error: " + client.error);
+                break;
+            }
+
+            i++;
+
+            if (i % 50 == 0)
+            {
+                room.Send("some_command");
+            }
+
+            yield return 0;
+        }
     }
+
     void OnOpenHandler (object sender, EventArgs e)
     {
         Debug.Log("Connectet to Server. Client id: " + client.id);
     }
 
-    void OnHubJoined (object sender, EventArgs e)
+    void OnRoomJoined (object sender, EventArgs e)
     {
         Debug.Log("Joined Hub successfully.");
     }
-
-    void OnApplicationQuit()
+    void OnUpdateHandler(object sender, RoomUpdateEventArgs e)
     {
-        client.Close();
+        Debug.Log("Connected to server. Client id: " + client.id);
     }
 
 }
