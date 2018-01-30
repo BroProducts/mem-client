@@ -1,9 +1,18 @@
+# client project
 client/[Ll]ibrary/
 client/[Tt]emp/
 client/[Oo]bj/
 client/[Bb]uild/
 client/[Bb]uilds/
 client/Assets/AssetStoreTools*
+
+#prototype project
+MemMapPrototype/[Ll]ibrary/
+MemMapPrototype/[Tt]emp/
+MemMapPrototype/[Oo]bj/
+MemMapPrototype/[Bb]uild/
+MemMapPrototype/[Bb]uilds/
+MemMapPrototype/Assets/AssetStoreTools*
 
 # Visual Studio 2015 cache directory
 .vs/
