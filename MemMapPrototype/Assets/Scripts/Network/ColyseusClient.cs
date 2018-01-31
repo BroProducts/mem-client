@@ -12,7 +12,7 @@ public class ColyseusClient : MonoBehaviour {
 	Client client;
 	Room room;
 	public string serverName = "localhost";
-	public string port = "3553";
+	public string port = "2657";
 	public string roomName = "chat";
 
 	// map of players
