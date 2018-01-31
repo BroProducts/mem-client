@@ -1507,7 +1507,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   serverName: localhost
   port: 2657
-  roomName: hub
+  roomName: chat
 --- !u!1001 &437401163
 Prefab:
   m_ObjectHideFlags: 0
