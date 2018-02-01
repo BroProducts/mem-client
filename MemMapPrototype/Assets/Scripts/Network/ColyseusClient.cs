@@ -13,7 +13,7 @@ public class ColyseusClient : MonoBehaviour {
 	Room room;
 	public string serverName = "localhost";
 	public string port = "2657";
-	public string roomName = "chat";
+	public string roomName = "hub";
 
 	// map of players
 	Dictionary<string, GameObject> players = new Dictionary<string, GameObject>();
@@ -36,6 +36,21 @@ public class ColyseusClient : MonoBehaviour {
 		room.Listen (this.OnChangeFallback);
 
 		room.OnData += (object sender, MessageEventArgs e) => Debug.Log(e.data);
+
+
+
+		while (true)
+		{
+			client.Recv();
+
+			if (client.error != null)
+			{
+				Debug.LogError ("Error: " + client.error);
+				break;
+			}
+
+			yield return 0;
+		}
 
 		OnApplicationQuit();
 	}
