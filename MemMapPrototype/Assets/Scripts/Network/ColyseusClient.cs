@@ -33,6 +33,9 @@ public class ColyseusClient : MonoBehaviour {
 		room.OnJoin += OnRoomJoined;
 		room.OnUpdate += OnUpdateHandler;
 
+
+		room.Listen("players/:id", OnPlayerChange);
+
 		room.Listen (this.OnChangeFallback);
 
 		room.OnData += (object sender, MessageEventArgs e) => Debug.Log(e.data);
@@ -100,22 +103,13 @@ public class ColyseusClient : MonoBehaviour {
 		Debug.Log (change.value);
 
 		if (change.operation == "add") {
-			IndexedDictionary<string, object> value = (IndexedDictionary<string, object>) change.value;
 
-			GameObject cube = GameObject.CreatePrimitive (PrimitiveType.Cube);
-
-			cube.transform.position = new Vector3 (Convert.ToSingle(value ["x"]), Convert.ToSingle(value ["y"]), 0);
-
-			// add "player" to map of players by id.
-			players.Add (change.path ["id"], cube);
+			Debug.Log ("Player added");
 
 		} else if (change.operation == "remove") {
-			// remove player from scene
-			GameObject cube;
-			players.TryGetValue (change.path ["id"], out cube);
-			Destroy (cube);
+			
+			Debug.Log ("Player removed");
 
-			players.Remove (change.path ["id"]);
 		}
 	}
 
