@@ -75,6 +75,7 @@ public class ColyseusClient : MonoBehaviour {
 	void OnRoomJoined (object sender, EventArgs e)
 	{
 		Debug.Log("Joined room successfully.");
+		SendMoveTo ();
 	}
 
 	void OnUpdateHandler (object sender, RoomUpdateEventArgs e)
@@ -152,7 +153,6 @@ public class ColyseusClient : MonoBehaviour {
 		}
 	}
 
-
 	void OnMessageAdded (DataChange change)
 	{
 		Debug.Log ("OnMessageAdded");
@@ -172,5 +172,16 @@ public class ColyseusClient : MonoBehaviour {
 	{
 		// Ensure the connection with server is closed immediatelly
 		client.Close();
+	}
+
+	void SendMoveTo() {
+		room.Send (new { 
+			action = "MOVE_PLAYER_TO",
+			payload = new {
+				x = 10,
+				y = 0,
+				z = 10
+			}
+		});
 	}
 }
