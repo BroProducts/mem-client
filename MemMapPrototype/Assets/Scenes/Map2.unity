@@ -155,7 +155,7 @@ Prefab:
     - target: {fileID: 114124896261502100, guid: 1fabc0e85c716be429cd2714d68abd6c,
         type: 2}
       propertyPath: roomName
-      value: movement
+      value: battleroom
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1fabc0e85c716be429cd2714d68abd6c, type: 2}
