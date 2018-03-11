@@ -36,6 +36,8 @@ public class ColyseusClient : MonoBehaviour {
 
 		room.Listen("players/:id", OnPlayerChange);
 
+		room.Listen ("players/:id/moveTo/:axis", this.OnPlayerMove);
+
 		room.Listen("teams/:id", OnTeamChange);
 
 		room.Listen (this.OnChangeFallback);
@@ -118,14 +120,19 @@ public class ColyseusClient : MonoBehaviour {
 
 	void OnPlayerMove (DataChange change)
 	{
-		Debug.Log ("OnPlayerMove");
+		Debug.Log ("ON_PLAYER_MOVED");
+		var x = change.path;
+		var y = x ["axis"];
 		Debug.Log ("playerId: " + change.path["id"] + ", Axis: " + change.path["axis"]);
+		Debug.Log (change);
 		Debug.Log (change.value);
 
+		/*
 		GameObject cube;
 		players.TryGetValue (change.path ["id"], out cube);
 
 		cube.transform.Translate (new Vector3 (Convert.ToSingle(change.value), 0, 0));
+		*/
 	}
 
 	void OnPlayerRemoved (DataChange change)
