@@ -9,8 +9,8 @@ using GameDevWare.Serialization.MessagePack;
 
 public class ColyseusClient : MonoBehaviour {
 
-	Client client;
-	Room room;
+	public Client client;
+	public Room room;
 	public string serverName = "localhost";
 	public string port = "2657";
 	public string roomName = "hub";
@@ -77,7 +77,7 @@ public class ColyseusClient : MonoBehaviour {
 	void OnRoomJoined (object sender, EventArgs e)
 	{
 		Debug.Log("Joined room successfully.");
-		SendMoveTo ();
+		SendMoveTo (new Vector3(10,0,10));
 	}
 
 	void OnUpdateHandler (object sender, RoomUpdateEventArgs e)
@@ -181,13 +181,13 @@ public class ColyseusClient : MonoBehaviour {
 		client.Close();
 	}
 
-	void SendMoveTo() {
+	public void SendMoveTo(Vector3 destination) {
 		room.Send (new { 
 			action = "MOVE_PLAYER_TO",
 			payload = new {
-				x = 10,
-				y = 0,
-				z = 10
+				x = destination.x,
+				y = destination.y,
+				z = destination.z
 			}
 		});
 	}

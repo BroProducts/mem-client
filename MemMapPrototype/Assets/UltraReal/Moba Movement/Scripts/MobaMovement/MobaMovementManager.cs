@@ -7,6 +7,7 @@ namespace UltraReal.MobaMovement
     ///</summary>
     public class MobaMovementManager : MonoBehaviour
     {
+		public ColyseusClient colyseusClient;
 
         #region Fields
         ///<summary>
@@ -198,6 +199,16 @@ namespace UltraReal.MobaMovement
                             _targetMobaMover.SetDestination(hit.point);
                         }
                     }
+					colyseusClient.room.Send (new { 
+						action = "MOVE_PLAYER_TO",
+						payload = new {
+							x = hit.point.x,
+							y = hit.point.y,
+							z = hit.point.z
+						}
+					});
+					Debug.Log (colyseusClient);
+					Debug.Log (hit.point);
                 }
             }
         }

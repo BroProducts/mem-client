@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.45103723, g: 0.49950212, b: 0.5668692, a: 1}
+  m_IndirectSpecularColor: {r: 0.45103747, g: 0.49950272, b: 0.5668693, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -1924,6 +1924,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1fabc0e85c716be429cd2714d68abd6c, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &537975979 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114124896261502100, guid: 1fabc0e85c716be429cd2714d68abd6c,
+    type: 2}
+  m_PrefabInternal: {fileID: 537975978}
+  m_Script: {fileID: 11500000, guid: f5fc2f1286002234c94177659a03d38f, type: 3}
 --- !u!1001 &573566100
 Prefab:
   m_ObjectHideFlags: 0
@@ -2269,6 +2275,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114113057585404520, guid: e34d71519d2bbc24ab05fcab915c73c8,
+        type: 2}
+      propertyPath: colyseusClient
+      value: 
+      objectReference: {fileID: 537975979}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e34d71519d2bbc24ab05fcab915c73c8, type: 2}
   m_IsPrefabParent: 0
