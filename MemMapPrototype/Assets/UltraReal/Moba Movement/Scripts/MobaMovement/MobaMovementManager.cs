@@ -195,10 +195,10 @@ namespace UltraReal.MobaMovement
                         //Set Destination
                         if (_moveToEffectPrefab != null && _mobaInput.GetMobaMoveButton() && _mouseClickType == MouseClickType.ClickToMove)
                         {
-                            Instantiate(_moveToEffectPrefab, hit.point, Quaternion.identity);
                             _targetMobaMover.SetDestination(hit.point);
                         }
                     }
+					/*
 					colyseusClient.room.Send (new { 
 						action = "MOVE_PLAYER_TO",
 						payload = new {
@@ -209,6 +209,7 @@ namespace UltraReal.MobaMovement
 					});
 					Debug.Log (colyseusClient);
 					Debug.Log (hit.point);
+					*/
                 }
             }
         }
