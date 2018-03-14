@@ -14,6 +14,8 @@ public class ColyseusClient : MonoBehaviour {
 	public string serverName = "localhost";
 	public string port = "2657";
 	public string roomName = "hub";
+	public GameObject myPlayer;
+	public Spawner spawner;
 
 	// map of players
 	Dictionary<string, GameObject> players = new Dictionary<string, GameObject>();
@@ -77,7 +79,7 @@ public class ColyseusClient : MonoBehaviour {
 	void OnRoomJoined (object sender, EventArgs e)
 	{
 		Debug.Log("Joined room successfully.");
-		SendMoveTo (new Vector3(10,0,10));
+		//SendMoveTo (new Vector3(10,0,10));
 	}
 
 	void OnUpdateHandler (object sender, RoomUpdateEventArgs e)
@@ -87,6 +89,7 @@ public class ColyseusClient : MonoBehaviour {
 			IndexedDictionary<string, object> players = (IndexedDictionary<string, object>) e.state ["players"];
 
 			// trigger to add existing players 
+			/*
 			foreach(KeyValuePair<string, object> player in players)
 			{
 				this.OnPlayerChange (new DataChange {
@@ -97,6 +100,7 @@ public class ColyseusClient : MonoBehaviour {
 					value = player.Value
 				});
 			}
+			*/
 		}
 	}
 
@@ -108,11 +112,16 @@ public class ColyseusClient : MonoBehaviour {
 		Debug.Log (change.value);
 
 		if (change.operation == "add") {
-
-			Debug.Log ("Player added");
+			if (change.path ["id"] == room.sessionId) {
+				spawner.PlayerAdd (change.path ["id"], myPlayer);
+				Debug.Log ("My Player Added");
+			} else {
+				spawner.PlayerSpawn (change.path ["id"]);
+				Debug.Log ("Other Player Added");
+			}
 
 		} else if (change.operation == "remove") {
-			
+			spawner.PlayerRemove (change.path ["id"]);
 			Debug.Log ("Player removed");
 
 		}
@@ -120,12 +129,14 @@ public class ColyseusClient : MonoBehaviour {
 
 	void OnPlayerMove (DataChange change)
 	{
+		/*
 		Debug.Log ("ON_PLAYER_MOVED");
 		var x = change.path;
 		var y = x ["axis"];
 		Debug.Log ("playerId: " + change.path["id"] + ", Axis: " + change.path["axis"]);
 		Debug.Log (change);
 		Debug.Log (change.value);
+		*/
 
 		/*
 		GameObject cube;
@@ -144,6 +155,7 @@ public class ColyseusClient : MonoBehaviour {
 
 	void OnTeamChange (DataChange change)
 	{
+		/*
 		Debug.Log ("OnTeamChange");
 		Debug.Log (change.operation);
 		Debug.Log (change.path["id"]);
@@ -158,6 +170,7 @@ public class ColyseusClient : MonoBehaviour {
 			Debug.Log ("Team removed");
 
 		}
+		*/
 	}
 
 	void OnMessageAdded (DataChange change)

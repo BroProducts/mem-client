@@ -38,7 +38,7 @@ namespace UltraReal.MobaMovement
     
             agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
 
-			agent.updateRotation = false;
+			//agent.updateRotation = false;
 
             Speed = _speed;
         }
@@ -53,7 +53,7 @@ namespace UltraReal.MobaMovement
 
 		void LateUpdate()
 		{
-			transform.rotation = Quaternion.LookRotation (agent.velocity.normalized);
+			//transform.rotation = Quaternion.LookRotation (agent.velocity.normalized);
 		}
         #endregion
 
