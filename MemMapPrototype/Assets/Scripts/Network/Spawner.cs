@@ -12,7 +12,7 @@ public class Spawner : MonoBehaviour {
 	{
 		var player = Instantiate (playerPrefab, Vector3.zero, Quaternion.identity) as GameObject;
 
-		player.GetComponent<NetworkEntity> ().id = id;
+
 
 		PlayerAdd (id, player);
 
@@ -25,7 +25,8 @@ public class Spawner : MonoBehaviour {
 	}
 
 	public void PlayerAdd(string id, GameObject player)
-	{
+	{	
+		player.GetComponent<NetworkEntity> ().id = id;
 		players.Add (id, player);
 	}
 

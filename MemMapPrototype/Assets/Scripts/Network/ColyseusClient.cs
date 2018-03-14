@@ -44,7 +44,7 @@ public class ColyseusClient : MonoBehaviour {
 
 		room.Listen (this.OnChangeFallback);
 
-		room.OnData += (object sender, MessageEventArgs e) => Debug.Log(e.data);
+		room.OnData += OnData;
 
 
 
@@ -80,6 +80,12 @@ public class ColyseusClient : MonoBehaviour {
 	{
 		Debug.Log("Joined room successfully.");
 		//SendMoveTo (new Vector3(10,0,10));
+	}
+
+	void OnData (object sender, MessageEventArgs e)
+	{
+		Debug.Log("On Data");
+		Debug.Log(e.data);
 	}
 
 	void OnUpdateHandler (object sender, RoomUpdateEventArgs e)

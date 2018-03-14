@@ -427,6 +427,11 @@ Prefab:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 114976341345227896, guid: 87b2dce2013143b498a2060ef2231e35,
+        type: 2}
+      propertyPath: colyseusClient
+      value: 
+      objectReference: {fileID: 219918801}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 87b2dce2013143b498a2060ef2231e35, type: 2}
   m_IsPrefabParent: 0

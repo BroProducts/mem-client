@@ -26,6 +26,7 @@ namespace UltraReal.MobaMovement
                 _speed = value;
             }
         }
+		public ColyseusClient colyseusClient;
         #endregion
 
         #region Behavior Overrides
@@ -63,8 +64,18 @@ namespace UltraReal.MobaMovement
         ///</summary>
         public override void SetDestination(Vector3 location)
         {
-            if (agent != null && gameObject.activeSelf)
-                agent.SetDestination(location);
+			if (agent != null && gameObject.activeSelf) {
+				agent.SetDestination (location);
+
+				colyseusClient.room.Send (new { 
+					action = "MOVE_PLAYER_TO",
+					payload = new {
+						x = location.x,
+						y = location.y,
+						z = location.z
+					}
+				});
+			}
         }
         #endregion
     }

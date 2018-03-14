@@ -7,8 +7,6 @@ namespace UltraReal.MobaMovement
     ///</summary>
     public class MobaMovementManager : MonoBehaviour
     {
-		public ColyseusClient colyseusClient;
-
         #region Fields
         ///<summary>
         ///Singleton instance to the MobaMovementManager.
