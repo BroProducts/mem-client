@@ -84,8 +84,25 @@ public class ColyseusClient : MonoBehaviour {
 
 	void OnData (object sender, MessageEventArgs e)
 	{
-		Debug.Log("On Data");
-		Debug.Log(e.data);
+		var data = (IndexedDictionary<string, object>) e.data;
+		if((data["action"] as string == "MOVE_PLAYER_TO") && (data["playerId"] as string != room.sessionId)) {
+			
+			var player = spawner.PlayerFindById (data ["playerId"] as string);
+			var agent = player.GetComponent<UnityEngine.AI.NavMeshAgent>();
+
+			var x = data ["x"];
+			var y = data ["y"];
+			var z = data ["z"];
+
+			var destinationX = float.Parse (x as string);
+			var destinationY = float.Parse (y as string);
+			var destinationZ = float.Parse (z as string);
+
+			var destination = new Vector3 (destinationX, destinationY, destinationZ);
+
+			agent.SetDestination(destination);
+
+		}
 	}
 
 	void OnUpdateHandler (object sender, RoomUpdateEventArgs e)
