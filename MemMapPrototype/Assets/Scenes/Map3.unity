@@ -37,8 +37,8 @@ RenderSettings:
   m_ReflectionBounces: 1
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
-  m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44950086, g: 0.49649626, b: 0.5591468, a: 1}
+  m_Sun: {fileID: 1251857856}
+  m_IndirectSpecularColor: {r: 0.18230191, g: 0.22486998, b: 0.28911608, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -252,6 +252,23 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a95afc340b7d21348a22207edba026df, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &456520701 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1559015756547070, guid: a186e742270b4ec42b3c70d1bf3ae833,
+    type: 2}
+  m_PrefabInternal: {fileID: 1741449253}
+--- !u!114 &456520707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 456520701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profile: {fileID: 11400000, guid: ce59c697c69e1974dbc02d50645e2dab, type: 2}
 --- !u!1 &468549519
 GameObject:
   m_ObjectHideFlags: 0
@@ -464,8 +481,8 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 1
-  m_Color: {r: 0.9852941, g: 0.45927095, b: 0.17387542, a: 1}
-  m_Intensity: 1.02
+  m_Color: {r: 1, g: 0.76673424, b: 0.2647059, a: 1}
+  m_Intensity: 2
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -473,7 +490,7 @@ Light:
     m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 0.5
+    m_Strength: 1
     m_Bias: 0
     m_NormalBias: 0
     m_NearPlane: 0.2
@@ -666,6 +683,26 @@ Prefab:
         type: 2}
       propertyPath: orthographic
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 20655578863131916, guid: a186e742270b4ec42b3c70d1bf3ae833,
+        type: 2}
+      propertyPath: m_RenderingPath
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 20655578863131916, guid: a186e742270b4ec42b3c70d1bf3ae833,
+        type: 2}
+      propertyPath: m_HDR
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 20655578863131916, guid: a186e742270b4ec42b3c70d1bf3ae833,
+        type: 2}
+      propertyPath: m_AllowMSAA
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 20655578863131916, guid: a186e742270b4ec42b3c70d1bf3ae833,
+        type: 2}
+      propertyPath: m_OcclusionCulling
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a186e742270b4ec42b3c70d1bf3ae833, type: 2}
