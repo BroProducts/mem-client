@@ -8,10 +8,9 @@ public class Spawner : MonoBehaviour {
 
 	Dictionary<string, GameObject> players = new Dictionary<string, GameObject> ();
 
-	public GameObject PlayerSpawn(string id)
+	public GameObject PlayerSpawn(string id, Vector3 positionSpawn)
 	{
-		var player = Instantiate (playerPrefab, Vector3.zero, Quaternion.identity) as GameObject;
-
+		var player = Instantiate (playerPrefab, positionSpawn, Quaternion.identity) as GameObject;
 
 
 		PlayerAdd (id, player);

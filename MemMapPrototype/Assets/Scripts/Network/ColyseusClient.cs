@@ -17,6 +17,8 @@ public class ColyseusClient : MonoBehaviour {
 	public GameObject myPlayer;
 	public Spawner spawner;
 
+	WaitForSeconds waitForSeconds = new WaitForSeconds(1f);
+
 	// map of players
 	Dictionary<string, GameObject> players = new Dictionary<string, GameObject>();
 
@@ -46,7 +48,7 @@ public class ColyseusClient : MonoBehaviour {
 
 		room.OnData += OnData;
 
-
+		StartCoroutine("SendMyPlayerPosition");
 
 		while (true)
 		{
@@ -61,7 +63,29 @@ public class ColyseusClient : MonoBehaviour {
 			yield return 0;
 		}
 
+
+
 		OnApplicationQuit();
+	}
+
+	IEnumerator SendMyPlayerPosition() {
+		while (true)
+		{
+			// Place your method calls
+			if (room.sessionId != null) {
+				Debug.Log ("SET_PLAYER_POSITION");
+				var playerPosition = myPlayer.transform.position;
+				room.Send (new {
+					action = "SET_PLAYER_POSITION",
+					payload = new {
+						x = playerPosition.x,
+						y = playerPosition.y,
+						z = playerPosition.z
+					}
+				});
+			}
+			yield return waitForSeconds;
+		}
 	}
 
 	void OnDestroy ()
@@ -139,7 +163,16 @@ public class ColyseusClient : MonoBehaviour {
 				spawner.PlayerAdd (change.path ["id"], myPlayer);
 				Debug.Log ("My Player Added");
 			} else {
-				spawner.PlayerSpawn (change.path ["id"]);
+
+				var data = (IndexedDictionary<string, object>) change.value;
+				
+				var currentPosition = (IndexedDictionary<string, object>) data["currentPosition"];
+
+				var x = Convert.ToSingle (currentPosition ["x"]);
+				var y = Convert.ToSingle (currentPosition ["y"]);
+				var z = Convert.ToSingle (currentPosition ["z"]);
+
+				spawner.PlayerSpawn (change.path ["id"], new Vector3(x, y, z));
 				Debug.Log ("Other Player Added");
 			}
 

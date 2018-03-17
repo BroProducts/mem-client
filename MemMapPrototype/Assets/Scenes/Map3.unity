@@ -432,6 +432,10 @@ Prefab:
       propertyPath: colyseusClient
       value: 
       objectReference: {fileID: 219918801}
+    - target: {fileID: 4035597161457288, guid: 87b2dce2013143b498a2060ef2231e35, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 87b2dce2013143b498a2060ef2231e35, type: 2}
   m_IsPrefabParent: 0
