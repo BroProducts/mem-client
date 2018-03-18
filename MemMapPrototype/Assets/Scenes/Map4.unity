@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: d0523d8917957bb429a32997cb0e52b2, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: b4d1e1180d6b45d4eaa6f6b684d18e2b, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.05231955, g: 0.40816173, b: 0.691203, a: 1}
+  m_IndirectSpecularColor: {r: 0.48051095, g: 0.24815927, b: 0.54993325, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -346,6 +346,31 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.y
       value: -8.2
       objectReference: {fileID: 0}
+    - target: {fileID: 20655578863131916, guid: a186e742270b4ec42b3c70d1bf3ae833,
+        type: 2}
+      propertyPath: m_RenderingPath
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 20655578863131916, guid: a186e742270b4ec42b3c70d1bf3ae833,
+        type: 2}
+      propertyPath: m_HDR
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 20655578863131916, guid: a186e742270b4ec42b3c70d1bf3ae833,
+        type: 2}
+      propertyPath: m_AllowMSAA
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 20655578863131916, guid: a186e742270b4ec42b3c70d1bf3ae833,
+        type: 2}
+      propertyPath: field of view
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 20655578863131916, guid: a186e742270b4ec42b3c70d1bf3ae833,
+        type: 2}
+      propertyPath: orthographic
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a186e742270b4ec42b3c70d1bf3ae833, type: 2}
   m_IsPrefabParent: 0
@@ -427,7 +452,7 @@ Transform:
   m_GameObject: {fileID: 1440737045}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -500, y: 0, z: -500}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 9, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 90965130}
   m_RootOrder: 0
