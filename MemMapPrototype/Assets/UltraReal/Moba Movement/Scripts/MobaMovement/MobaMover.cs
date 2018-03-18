@@ -70,14 +70,16 @@ namespace UltraReal.MobaMovement
 			if (agent != null && gameObject.activeSelf) {
 				agent.SetDestination (location);
 
-				colyseusClient.room.Send (new { 
-					action = "MOVE_PLAYER_TO",
-					payload = new {
-						x = location.x,
-						y = location.y,
-						z = location.z
-					}
-				});
+				if (colyseusClient != null) {
+					colyseusClient.room.Send (new { 
+						action = "MOVE_PLAYER_TO",
+						payload = new {
+							x = location.x,
+							y = location.y,
+							z = location.z
+						}
+					});
+				}
 			}
         }
         #endregion
