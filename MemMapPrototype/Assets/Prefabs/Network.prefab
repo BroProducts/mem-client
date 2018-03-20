@@ -51,6 +51,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5fc2f1286002234c94177659a03d38f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  serverName: localhost
+  serverName: 138.68.73.130
   port: 2657
-  roomName: hub
+  roomName: battleroom
+  myPlayer: {fileID: 0}
+  spawner: {fileID: 0}
