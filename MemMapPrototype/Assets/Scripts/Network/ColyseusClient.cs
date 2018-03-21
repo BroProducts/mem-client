@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 using Colyseus;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 using GameDevWare.Serialization;
 using GameDevWare.Serialization.MessagePack;
@@ -108,15 +110,19 @@ public class ColyseusClient : MonoBehaviour {
 
 	void OnData (object sender, MessageEventArgs e)
 	{
-		var data = (IndexedDictionary<string, object>) e.data;
-		if((data["action"] as string == "MOVE_PLAYER_TO") && (data["playerId"] as string != room.sessionId)) {
+		var dataJsonString = JsonConvert.SerializeObject (e);
+		var dataJson = JToken.Parse (dataJsonString);
+		var playerId = (string)dataJson ["data"] ["playerId"];
+		var action = (string)dataJson ["data"] ["action"];
+		//var data = (IndexedDictionary<string, object>) e.data;
+		if((action == "MOVE_PLAYER_TO") && (playerId != room.sessionId)) {
 			
-			var player = spawner.PlayerFindById (data ["playerId"] as string);
+			var player = spawner.PlayerFindById (playerId);
 			var agent = player.GetComponent<UnityEngine.AI.NavMeshAgent>();
 
-			var x = data ["x"];
-			var y = data ["y"];
-			var z = data ["z"];
+			var x =  (string)dataJson ["data"] ["x"];
+			var y =  (string)dataJson ["data"] ["y"];
+			var z =  (string)dataJson ["data"] ["z"];
 
 			var destinationX = float.Parse (x as string);
 			var destinationY = float.Parse (y as string);
