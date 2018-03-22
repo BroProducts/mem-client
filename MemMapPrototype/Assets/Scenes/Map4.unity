@@ -501,7 +501,7 @@ Camera:
   far clip plane: 5000
   field of view: 25
   orthographic: 1
-  orthographic size: 15
+  orthographic size: 50
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -798,6 +798,26 @@ Prefab:
         type: 2}
       propertyPath: ShapeModule.radiusThickness
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198493334495991302, guid: 5c756c8907266654bbf24fb87ab6c759,
+        type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 198493334495991302, guid: 5c756c8907266654bbf24fb87ab6c759,
+        type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 198493334495991302, guid: 5c756c8907266654bbf24fb87ab6c759,
+        type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 198493334495991302, guid: 5c756c8907266654bbf24fb87ab6c759,
+        type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
       objectReference: {fileID: 0}
     - target: {fileID: 198493334495991302, guid: 5c756c8907266654bbf24fb87ab6c759,
         type: 2}
