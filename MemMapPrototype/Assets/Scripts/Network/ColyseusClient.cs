@@ -19,9 +19,6 @@ public class ColyseusClient : MonoBehaviour {
 
 	WaitForSeconds waitForSeconds = new WaitForSeconds(1f);
 
-	// map of players
-	Dictionary<string, GameObject> players = new Dictionary<string, GameObject>();
-
 	// Use this for initialization
 	IEnumerator Start () {
 
