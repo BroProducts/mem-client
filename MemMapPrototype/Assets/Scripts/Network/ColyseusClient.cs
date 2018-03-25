@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.AI;
 using System.Collections;
 using System.Collections.Generic;
 using System;
@@ -155,20 +156,28 @@ public class ColyseusClient : MonoBehaviour {
 		Debug.Log (change.path["id"]);
 		Debug.Log (change.value);
 
+		var data = (IndexedDictionary<string, object>) change.value;
+
+
 		if (change.operation == "add") {
 			if (change.path ["id"] == room.sessionId) {
 				spawner.PlayerAdd (change.path ["id"], myPlayer);
+				NavMeshAgent agent = myPlayer.GetComponent<NavMeshAgent> ();
+				agent.enabled = false;
+				Transform transform = myPlayer.GetComponent<Transform> ();
+				var currentPosition = (IndexedDictionary<string, object>) data["currentPosition"];
+				var x = Convert.ToSingle (currentPosition ["x"]);
+				var y = Convert.ToSingle (currentPosition ["y"]);
+				var z = Convert.ToSingle (currentPosition ["z"]);
+				transform.SetPositionAndRotation (new Vector3 (x, y, z), transform.rotation);
+				agent.enabled = true;
 				Debug.Log ("My Player Added");
 			} else {
-
-				var data = (IndexedDictionary<string, object>) change.value;
-				
 				var currentPosition = (IndexedDictionary<string, object>) data["currentPosition"];
 
 				var x = Convert.ToSingle (currentPosition ["x"]);
 				var y = Convert.ToSingle (currentPosition ["y"]);
 				var z = Convert.ToSingle (currentPosition ["z"]);
-
 				spawner.PlayerSpawn (change.path ["id"], new Vector3(x, y, z));
 				Debug.Log ("Other Player Added");
 			}
