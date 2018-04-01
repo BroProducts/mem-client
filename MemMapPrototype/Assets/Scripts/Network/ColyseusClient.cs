@@ -42,6 +42,8 @@ public class ColyseusClient : MonoBehaviour {
 
 		room.Listen("teams/:id", OnTeamChange);
 
+		room.Listen ("elapsedTime", OnElapsedTimeChange);
+
 		room.Listen (this.OnChangeFallback);
 
 		room.OnData += OnData;
@@ -147,6 +149,11 @@ public class ColyseusClient : MonoBehaviour {
 			}
 			*/
 		}
+	}
+
+	void OnElapsedTimeChange (DataChange change)
+	{
+		print (change.value);
 	}
 
 	void OnPlayerChange (DataChange change)
