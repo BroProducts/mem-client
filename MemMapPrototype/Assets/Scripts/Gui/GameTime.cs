@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using Colyseus;
+using GameDevWare.Serialization;
 
 public class GameTime : MonoBehaviour {
 
@@ -11,11 +13,19 @@ public class GameTime : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		textmeshPro = this.GetComponent<TextMeshProUGUI> ();
-		textmeshPro.SetText ("hallo");
+		textmeshPro = GetComponent<TextMeshProUGUI> ();
+		
+        colyseusClient.onDeleyedTimeChange += onDeleyedTimeChange;
 	}
-	
-	// Update is called once per frame
-	void Update () {
+
+    void onDeleyedTimeChange(DataChange change)
+    {
+        var delayedTime = change.value;
+        print(delayedTime);
+        //textmeshPro.SetText(deleyedTime);
+    }
+
+    // Update is called once per frame   
+    void Update () {
 	}
 }

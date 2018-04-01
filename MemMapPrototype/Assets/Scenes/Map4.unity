@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.48062888, g: 0.24823207, b: 0.55019313, a: 1}
+  m_IndirectSpecularColor: {r: 0.48051095, g: 0.24815927, b: 0.54993325, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -1260,6 +1260,136 @@ Prefab:
         type: 2}
       propertyPath: ShapeModule.radiusThickness
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198493334495991302, guid: 5c756c8907266654bbf24fb87ab6c759,
+        type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 198493334495991302, guid: 5c756c8907266654bbf24fb87ab6c759,
+        type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 198493334495991302, guid: 5c756c8907266654bbf24fb87ab6c759,
+        type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 198493334495991302, guid: 5c756c8907266654bbf24fb87ab6c759,
+        type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 198493334495991302, guid: 5c756c8907266654bbf24fb87ab6c759,
+        type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 198493334495991302, guid: 5c756c8907266654bbf24fb87ab6c759,
+        type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 198493334495991302, guid: 5c756c8907266654bbf24fb87ab6c759,
+        type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 198493334495991302, guid: 5c756c8907266654bbf24fb87ab6c759,
+        type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 198493334495991302, guid: 5c756c8907266654bbf24fb87ab6c759,
+        type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 198493334495991302, guid: 5c756c8907266654bbf24fb87ab6c759,
+        type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 198493334495991302, guid: 5c756c8907266654bbf24fb87ab6c759,
+        type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 198493334495991302, guid: 5c756c8907266654bbf24fb87ab6c759,
+        type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 198493334495991302, guid: 5c756c8907266654bbf24fb87ab6c759,
+        type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 198493334495991302, guid: 5c756c8907266654bbf24fb87ab6c759,
+        type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 198493334495991302, guid: 5c756c8907266654bbf24fb87ab6c759,
+        type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 198493334495991302, guid: 5c756c8907266654bbf24fb87ab6c759,
+        type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 198493334495991302, guid: 5c756c8907266654bbf24fb87ab6c759,
+        type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 198493334495991302, guid: 5c756c8907266654bbf24fb87ab6c759,
+        type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 198493334495991302, guid: 5c756c8907266654bbf24fb87ab6c759,
+        type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 198493334495991302, guid: 5c756c8907266654bbf24fb87ab6c759,
+        type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 198493334495991302, guid: 5c756c8907266654bbf24fb87ab6c759,
+        type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 198493334495991302, guid: 5c756c8907266654bbf24fb87ab6c759,
+        type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 198493334495991302, guid: 5c756c8907266654bbf24fb87ab6c759,
+        type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 198493334495991302, guid: 5c756c8907266654bbf24fb87ab6c759,
+        type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 198493334495991302, guid: 5c756c8907266654bbf24fb87ab6c759,
+        type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 198493334495991302, guid: 5c756c8907266654bbf24fb87ab6c759,
+        type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
       objectReference: {fileID: 0}
     - target: {fileID: 198493334495991302, guid: 5c756c8907266654bbf24fb87ab6c759,
         type: 2}
@@ -6085,6 +6215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fe1525412b4e4bf49cb4cbf21774632, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  colyseusClient: {fileID: 212715263}
 --- !u!1 &1588504195
 GameObject:
   m_ObjectHideFlags: 0

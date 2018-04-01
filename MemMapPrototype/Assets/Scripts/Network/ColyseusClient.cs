@@ -20,6 +20,9 @@ public class ColyseusClient : MonoBehaviour {
 
 	WaitForSeconds waitForSeconds = new WaitForSeconds(1f);
 
+    public delegate void OnDeleyedTimeChange(DataChange change);
+    public event OnDeleyedTimeChange onDeleyedTimeChange;
+
 	// Use this for initialization
 	IEnumerator Start () {
 
@@ -153,8 +156,8 @@ public class ColyseusClient : MonoBehaviour {
 
 	void OnElapsedTimeChange (DataChange change)
 	{
-		print (change.value);
-	}
+        onDeleyedTimeChange(change);
+    }
 
 	void OnPlayerChange (DataChange change)
 	{
