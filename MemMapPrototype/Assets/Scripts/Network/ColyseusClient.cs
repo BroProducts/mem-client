@@ -36,7 +36,7 @@ public class ColyseusClient : MonoBehaviour {
 		room = client.Join(roomName);
 		room.OnReadyToConnect += (sender, e) => StartCoroutine ( room.Connect() );
 		room.OnJoin += OnRoomJoined;
-		room.OnUpdate += OnUpdateHandler;
+		room.OnStateChange += OnUpdateHandler;
 
 
 		room.Listen("players/:id", OnPlayerChange);
@@ -49,7 +49,7 @@ public class ColyseusClient : MonoBehaviour {
 
 		room.Listen (this.OnChangeFallback);
 
-		room.OnData += OnData;
+		room.OnMessage += OnData;
 
 		StartCoroutine("SendMyPlayerPosition");
 
@@ -57,18 +57,9 @@ public class ColyseusClient : MonoBehaviour {
 		{
 			client.Recv();
 
-			if (client.error != null)
-			{
-				Debug.LogError ("Error: " + client.error);
-				break;
-			}
-
 			yield return 0;
 		}
 
-
-
-		OnApplicationQuit();
 	}
 
 	IEnumerator SendMyPlayerPosition() {
@@ -111,7 +102,7 @@ public class ColyseusClient : MonoBehaviour {
 
 	void OnData (object sender, MessageEventArgs e)
 	{
-		var data = (IndexedDictionary<string, object>) e.data;
+		var data = (IndexedDictionary<string, object>) e.message;
 		if((data["action"] as string == "MOVE_PLAYER_TO") && (data["playerId"] as string != room.sessionId)) {
 			
 			var player = spawner.PlayerFindById (data ["playerId"] as string);
@@ -262,8 +253,9 @@ public class ColyseusClient : MonoBehaviour {
 
 	void OnApplicationQuit()
 	{
-		// Ensure the connection with server is closed immediatelly
-		client.Close();
+        // Ensure the connection with server is closed immediatelly
+        room.Leave();
+        client.Close();
 	}
 
 	public void SendMoveTo(Vector3 destination) {
