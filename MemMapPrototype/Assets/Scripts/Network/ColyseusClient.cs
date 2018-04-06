@@ -37,9 +37,15 @@ public class ColyseusClient : MonoBehaviour {
 		room.OnReadyToConnect += (sender, e) => StartCoroutine ( room.Connect() );
 		room.OnJoin += OnRoomJoined;
 		room.OnStateChange += OnUpdateHandler;
+        room.OnError += (sender, e) =>
+        {
+            Debug.Log("oops, error ocurred:");
+            Debug.Log(e);
+        };
 
 
-		room.Listen("players/:id", OnPlayerChange);
+
+        room.Listen("players/:id", OnPlayerChange);
 
 		room.Listen ("players/:id/moveTo/:axis", this.OnPlayerMove);
 
