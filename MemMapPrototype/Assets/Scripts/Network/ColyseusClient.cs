@@ -43,8 +43,6 @@ public class ColyseusClient : MonoBehaviour {
             Debug.Log(e);
         };
 
-
-
         room.Listen("players/:id", OnPlayerChange);
 
 		room.Listen ("players/:id/moveTo/:axis", this.OnPlayerMove);
